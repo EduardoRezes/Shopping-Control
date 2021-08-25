@@ -115,6 +115,13 @@ function deleteData(id){
     }
 }
 
+function deleteList(){
+    if (confirm("Delete this list?")) {
+        list = [];
+        setList(list);
+    }
+}
+
 function validation(){  
     var desc = document.getElementById("desc").value;
     var amount = document.getElementById("amount").value;
