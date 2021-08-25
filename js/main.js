@@ -1,25 +1,25 @@
 var list = [
     {
-        "Desc":"rice", 
-        "Amount":"1",
-        "Value":"5.40"
+        "desc":"rice", 
+        "amount":"1",
+        "value":"5.40"
     },
     {
-        "Desc":"beer", 
-        "Amount":"12",
-        "Value":"1.99"
+        "desc":"beer", 
+        "amount":"12",
+        "value":"1.99"
     },
     {
-        "Desc":"meat", 
-        "Amount":"1",
-        "Value":"15.00"
+        "desc":"meat", 
+        "amount":"1",
+        "value":"15.00"
     }
 ];
 
 function getTotal(list){
     var total = 0;
     for (var key in list) {
-        total += list[key].Value * list[key].Amount;
+        total += list[key].value * list[key].amount;
     }
     return total;
 }
@@ -27,7 +27,7 @@ function getTotal(list){
 function setList(list){
     var table = `<thead><tr><td>Description</td><td>Amount</td><td>Value</td><td>Action</td></tr></thead><tbody>`;
     for (var key in list) {
-        table += `<tr><td>${formatDesc(list[key].Desc)}</td><td>${list[key].Amount}</td><td>${formatValue(list[key].Value)}</td><td>Edit | Delete</td></tr>`       
+        table += `<tr><td>${formatDesc(list[key].desc)}</td><td>${list[key].amount}</td><td>${formatValue(list[key].value)}</td><td>Edit | Delete</td></tr>`       
     }
     table += `</tbody>`;
     document.getElementById("listTable").innerHTML = table;
@@ -45,4 +45,14 @@ function formatValue(value){
     str = `$ ${str}`;
     return str;
 }
+
+function addData(){
+    var desc = document.getElementById("desc").value;
+    var amount = document.getElementById("amount").value;
+    var value = document.getElementById("value").value;
+
+    list.unshift({ "desc": desc,"amount": amount,"value": value });
+    setList(list);
+}
+
 setList(list)
