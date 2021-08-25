@@ -27,10 +27,22 @@ function getTotal(list){
 function setList(list){
     var table = `<thead><tr><td>Description</td><td>Amount</td><td>Value</td><td>Action</td></tr></thead><tbody>`;
     for (var key in list) {
-        table += `<tr><td>${list[key].Desc}</td><td>${list[key].Amount}</td><td>${list[key].Value}</td><td>Edit | Delete</td></tr>`       
+        table += `<tr><td>${formatDesc(list[key].Desc)}</td><td>${list[key].Amount}</td><td>${formatValue(list[key].Value)}</td><td>Edit | Delete</td></tr>`       
     }
     table += `</tbody>`;
     document.getElementById("listTable").innerHTML = table;
 }
-setList(list);
-console.log(getTotal(list));
+
+function formatDesc(desc) {
+    var str = desc.toLowerCase();
+    str = str.charAt(0).toUpperCase() + str.slice(1);
+    return str;
+}
+
+function formatValue(value){
+    var str = parseFloat(value).toFixed(2) + "";
+    str = str.replace("." , ",");
+    str = `$ ${str}`;
+    return str;
+}
+setList(list)
