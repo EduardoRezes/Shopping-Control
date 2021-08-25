@@ -32,6 +32,7 @@ function setList(list){
     table += `</tbody>`;
     document.getElementById("listTable").innerHTML = table;
     getTotal(list);
+    saveListStorage(list);
 }
 
 function formatDesc(desc) {
@@ -159,4 +160,16 @@ function validation(){
     }
 }
 
-setList(list);
+function saveListStorage(list){
+    var jsonStr = JSON.stringify(list);
+    localStorage.setItem("Shopping List", jsonStr);
+}
+
+function initListStorage(){
+    var testList = localStorage.getItem("Shopping List");
+    if (testList) {
+        list = JSON.parse(testList);
+    }
+    setList(list);
+}
+initListStorage();
