@@ -1,19 +1,7 @@
 var list = [
-    {
-        "desc":"rice", 
-        "amount":"1",
-        "value":"5.40"
-    },
-    {
-        "desc":"beer", 
-        "amount":"12",
-        "value":"1.99"
-    },
-    {
-        "desc":"meat", 
-        "amount":"1",
-        "value":"15.00"
-    }
+    {"desc":"rice", "amount":"1", "value":"5.40"},
+    {"desc":"beer", "amount":"12", "value":"1.99"},
+    {"desc":"meat", "amount":"1", "value":"15.00"}
 ];
 
 function getTotal(list){
